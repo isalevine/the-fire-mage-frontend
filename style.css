@@ -1,0 +1,185 @@
+
+
+
+
+body {
+  font-family: "Times New Roman";
+  background-color: darkred;
+  height: 1200px;
+}
+
+.header {
+  font-style: italic;
+  color: yellow;
+
+  background-color: firebrick;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  font-style: italic;
+  color: orange;
+
+  background-color: firebrick;
+}
+
+
+
+
+
+.grid-container {
+  display: grid;
+}
+
+.col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+
+
+
+
+#game-window {
+  position: absolute;
+  border-style: solid;
+  border-color: black;
+  border-width: 5px;
+  border-radius: 5px;
+  width: 840px;
+  height: 640px;
+  cursor: url(./game-art/misc/sword-cursor-2-big.png), auto;
+}
+
+.container {
+  position: absolute;
+  display: inline-grid;
+  grid-template-columns: repeat(20, 42px);
+  grid-template-rows: repeat(12, 42px);
+}
+
+.container > .hitbox {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: blue;
+  width: 99.5%;
+  height: 99.5%;
+
+}
+
+#board-container {
+
+}
+
+#terrain-container {
+
+}
+
+#unit-container {
+
+}
+
+
+
+
+.tile {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-style: none;
+  border-width: 0px;
+  border-color: black;
+}
+
+#terrain-container > .cell.terrain {
+  z-index: 4;
+  /* to turn grid lines off, change
+  border-width to 0, and width
+  and height to 42px */
+}
+
+.cell {
+  position: relative;
+  border-width: 3px;
+  width: 52px;
+  height: 52px;
+  opacity: 1;
+}
+
+#unit-container > .cell.unit {
+  z-index:10;
+  width: 52px;
+  height: 52px;
+}
+
+#item-container > .cell.item {
+  z-index: 6;
+}
+
+.axe {
+
+}
+
+.tree {
+
+}
+
+.mage {
+
+}
+
+
+
+.cell > .hitbox {
+  position: absolute;
+  border-style: solid;
+  border-width: 1px;
+  border-color: yellow;
+  width: 85%;
+  height: 85%;
+  left: 5%;
+  top: 5.5%;
+
+}
+
+.hitbox.showHitboxOff {
+  border-color: transparent;
+}
+
+
+
+#selected-frame {
+  position: absolute;
+  width: 88%;
+  height: 88%;
+  left: 0px;
+  top: 0px;
+  border-style: solid;
+  border-color: limegreen;
+}
+
+.cell.selected {
+
+}
+
+
+.click-pointer {
+  position: relative;
+  z-index: 9;
+  width: 16px;
+  height: 16px;
+}
+
+.click-image {
+  width: 100%;
+  height: 100%;
+}
+
+.cell.fadeout {
+  opacity: 0;
+  transition: 1s ease-in;
+}
