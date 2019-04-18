@@ -94,14 +94,33 @@ function itemCollisionEvent(unitCell, itemCell) {
     console.log("itemCollisionEvent detected for axeCell and mageCell...")
     itemCell.onMap = false
 
+    document.getElementsByClassName("click-pointer")[0].remove()
+
     itemCell.div.classList.remove('item')
     itemCell.div.classList.add('fadeout', 'special-effect')
     itemCell.div.style.top = parseInt(getComputedStyle(itemCell.div).top.replace("px", "")) - 30 + "px"
+
+
 
     setTimeout(() => {
       itemCell.div.remove()
       console.log(`${itemCell.name} gained to your inventory!`)
       addItemToInventory(unitCell, axeCell.name)
+
+      let itemBox = document.getElementById('inventory-container-box-axe')
+      let div = document.createElement('div')
+      div.classList.add('zero-opacity')
+      itemBox.appendChild(div)
+      // NAME THIS "item-box-div" or some shit...
+
+      let img = document.createElement('img')
+      img.style = "width: 100%; height: 100%;"
+      img.src = axeCell.div.getElementsByTagName("img")[0].src
+      div.classList.remove('zero-opacity')
+      // img.classList.add("slow-fadein")
+      // fade-in not working...DEBUG AND REFACTOR!!
+      div.appendChild(img)
+
     }, 1000)
   }
 

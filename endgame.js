@@ -5,11 +5,10 @@ function createEndgame() {
     // case 1: mage collides with tree (with axe in inventory)
     case1: function() {
       console.log("INITIATE ENDGAME CASE #!: tree becomes campfire...")
+      document.body.classList.add('unclickable')
 
-      // remove click-pointer
       document.getElementsByClassName("click-pointer")[0].remove()
       document.getElementById("selected-frame").remove()
-
 
       // remove event-listeners on all cells to stop selecting/movement
 

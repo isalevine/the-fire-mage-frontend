@@ -25,7 +25,7 @@ function addItemClickHandler(itemCell) {
   itemCell.div.addEventListener('contextmenu', (ev) => {
     ev.preventDefault();
     console.log("right-click on item detected...")
-    
+
     updateCells()
 
     let positionX = itemCell.centerPosition.left
@@ -87,7 +87,9 @@ function resetSelectedCell() {
   if (selectedCell) {
     selectedCell.classList.remove('selected')
     let selectedFrame = document.getElementById('selected-frame')
-    selectedFrame.remove()
+    if (selectedFrame) {
+      selectedFrame.remove()
+    }
   }
 }
 

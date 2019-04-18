@@ -73,7 +73,7 @@ body {
 
 }
 
-#board-container {
+/* #board-container {
 
 }
 
@@ -83,7 +83,7 @@ body {
 
 #unit-container {
 
-}
+} */
 
 #terrain-container > .tile.terrain {
   z-index: 4;
@@ -180,7 +180,76 @@ body {
   transition: 2s ease-in;
 }
 
+
 .cell.slow-fadein {
   opacity: 1;
   transition: 1.5s ease-in;
+}
+/* COMBINE!!!!!!!! + test if .cell is needed?? */
+.slow-fadein {
+  opacity: 1
+  transition: 1.5s ease-in;
+}
+/* COMBINE!!!!!!!! or find a better way... */
+.zero-opacity {
+  opacity: 0;
+}
+
+
+
+
+/* START-MENU, PLAYER-MENU, TEXT-AREAS, END-GAME COVER, etc. */
+
+#text-container {
+  left: 0;
+  width: 500px;
+}
+
+#inventory-container {
+  left: 500px;
+  width: 336px;
+}
+
+.player-menu {
+  position: absolute;
+  top: 506px;
+  height: 132px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #2F2D2D;
+  background-color: black;
+}
+
+.text-box {
+  position: absolute;
+  left: 7.5%;
+  top: 19%;
+  width: 82%;
+  height: 60%;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #2F2D2D;
+  background-color: black;
+}
+
+.item-box {
+  position: absolute;
+  left: 7.5%;
+  top: 19%;
+  width: 25%;
+  height: 60%;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #2F2D2D;
+  background-color: black;
+}
+
+
+
+/* use for endgame & animations */
+.unclickable {
+  pointer-events: none;
 }
