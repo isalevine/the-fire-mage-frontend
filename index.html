@@ -19,13 +19,6 @@
 
     <!-- game -->
     <div id="game-window">
-
-
-      <!-- terrain -->
-      <!-- <div id="terrain-container">
-      </div> -->
-
-
     </div>
 
     <!-- instructions -->
@@ -54,8 +47,25 @@
     <script src="collider.js" type="text/javascript"></script>
     <script src="click-handlers.js" type="text/javascript"></script>
     <script src="classes.js" type="text/javascript"></script>
+    <script src="draw-game.js" type="text/javascript"></script>
     <script src="endgame.js" type="text/javascript"></script>
+    <script src="set-game-session.js" type="text/javascript"></script>
+    <script src="initialize-game.js" type="text/javascript"></script>
+    <script src="database-functions.js" type="text/javascript"></script>
     <script src="unit-movement.js" type="text/javascript"></script>
+    <!--
+    POTENTIAL ORDER: (based on when the functions/variables show up)
+    app
+    database-functions
+    set-game-session
+    draw-game
+    initialize-game
+    collider
+    endgame
+    click-handlers
+    classes
+    unit-movement
+    -->
   </body>
 
 </html>

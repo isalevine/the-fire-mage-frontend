@@ -93,7 +93,7 @@ function itemCollisionEvent(unitCell, itemCell) {
   if (itemCell === axeCell && unitCell === mageCell) {
     console.log("itemCollisionEvent detected for axeCell and mageCell...")
     itemCell.onMap = false
-    itemCell.position = null
+    // itemCell.position = null
     itemCell.div.classList.add('fadeout')
     setTimeout(() => {
       itemCell.div.remove()

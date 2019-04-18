@@ -49,10 +49,20 @@ function executeSelectedUnitMovement(positionX, positionY) {
 
         if (transitionOn === false) {
           clearInterval(hitboxUpdater);
+          updateCells()
           console.log('setInterval is off!')
         }
 
         selectedUnit.cell.hitboxPosition = positionCreator(selectedUnit.cell.hitbox())
+
+        // container-correction needed for accurate unit placement
+        let containerX = unitContainer.div.getBoundingClientRect().x
+        let containerY = unitContainer.div.getBoundingClientRect().y
+        selectedUnit.cell.position = positionCreator(selectedUnit)
+        selectedUnit.cell.position.left -= containerX
+        selectedUnit.cell.position.top -= containerY
+
+
         // console.log('selectedUnit.cell.hitboxPosition: ', selectedUnit.cell.hitboxPosition)
         collider.checkContainerUnitCollision(selectedUnit, boardContainer)
         collider.checkItemUnitCollision(selectedUnit)

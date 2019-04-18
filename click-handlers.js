@@ -25,8 +25,8 @@ function addItemClickHandler(itemCell) {
   itemCell.div.addEventListener('contextmenu', (ev) => {
     ev.preventDefault();
     console.log("right-click on item detected...")
-
-    // debugger
+    
+    updateCells()
 
     let positionX = itemCell.centerPosition.left
     let positionY = itemCell.centerPosition.top

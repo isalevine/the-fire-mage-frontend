@@ -33,14 +33,20 @@ class Container {
 
 
 class Cell {
-  constructor(containerQuery, position) {
+  constructor(containerQuery, position, onMap = true) {
     this.position = position;
+    this.onMap = onMap
 
     let container = document.getElementById(`${containerQuery}`)
     let div = document.createElement('div')
     div.classList.add('cell')
-    container.appendChild(div)
-    this.onMap = true
+
+
+    if (this.onMap) {
+      container.appendChild(div)
+    }
+
+
     this.div = div
     div.cell = this
 
@@ -63,9 +69,12 @@ class Cell {
 
 
 class Unit extends Cell {
-  constructor(name, container, position) {
-    super(container, position)
+  constructor(name, container, position, onMap) {
+    super(container, position, onMap)
     this.name = name
+    this.cellType = "unit"
+    this.gameSessionId = currentGameSession.id
+
     this.div.classList.add('unit', `${name}`)
     this.div.id = `unit-${name}`
     this.inventory = []
@@ -83,9 +92,10 @@ class Unit extends Cell {
 
 
 class Item extends Cell {
-  constructor(name, container, position) {
-    super(container, position)
+  constructor(name, container, position, onMap) {
+    super(container, position, onMap)
     this.name = name
+    this.cellType = "item"
     this.div.classList.add('item', `${name}`)
     this.div.id = `item-${name}`
 
