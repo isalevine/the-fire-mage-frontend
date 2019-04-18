@@ -24,7 +24,7 @@ function createEndgame() {
         setTimeout(() => {
           displayTextMessage("What?...I'm not called the <strong>axe</strong> mage...")
           setTimeout(() => {
-            addTextMessage("<em>(Refresh your browser to play again!)</em>")
+            addTextMessage("<em>(You win! Refresh your browser to play again...)</em>")
           }, 2000)
         }, 1600)
       }, 2000)

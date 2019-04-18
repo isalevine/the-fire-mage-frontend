@@ -10,7 +10,7 @@ share a common class for black background + gray border?? */
 body {
   font-family: "Times New Roman";
   background-color: darkred;
-  height: 1200px;
+  height: 885px;
 }
 
 .header {
@@ -30,8 +30,9 @@ body {
   background-color: firebrick;
 }
 
-
-
+a {
+  color: yellow;
+}
 
 
 .grid-container {
@@ -43,12 +44,42 @@ body {
 }
 
 
+#instruction-container {
+  position: absolute;
+
+  top: 755px;
+  width: 846px;
+  height: 110px;
+
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 5px;
+  border-color: #1E1D1D;
+  background-color: #E94614;
+  cursor: url(../game-art/misc/fireball-1-cursor-big.png), auto;
+}
+
+.instruction-text {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  font-size: 20px;
+  font-family: garamond;
+}
+
+
+
+
+
+
+
 
 
 
 
 #game-window {
   position: absolute;
+  top: 95px;
   border-style: solid;
   border-color: black;
   border-width: 5px;
@@ -176,6 +207,12 @@ body {
 
 
 
+
+
+
+
+
+
 .cell.special-effect {
   z-index: 12;
 }
@@ -209,6 +246,10 @@ body {
   opacity: 0;
   transition: 1.3s ease-out;
 }
+
+
+
+
 
 
 
@@ -294,6 +335,11 @@ p.menu-text {
 
 
 
+
+
+
+
+
 #player-menu-text-container {
   left: 0;
   width: 500px;
@@ -354,6 +400,17 @@ div.text-message {
   border-color: #2F2D2D;
   background-color: black;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

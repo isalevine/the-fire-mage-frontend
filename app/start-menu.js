@@ -71,5 +71,5 @@ function createStartMenu(){
       setGameSession()
     })
 
-
+  createInstructions()
 }
