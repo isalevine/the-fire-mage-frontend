@@ -93,6 +93,10 @@ function itemCollisionEvent(unitCell, itemCell) {
   if (itemCell === axeCell && unitCell === mageCell) {
     console.log("itemCollisionEvent detected for axeCell and mageCell...")
     itemCell.onMap = false
+    console.log(`${itemCell.name} gained to your inventory!`)
+    addItemToInventory(unitCell, axeCell.name)
+    updateCells()
+    displayTextMessage("Axe gained to your inventory!")
 
     document.getElementsByClassName("click-pointer")[0].remove()
 
@@ -104,8 +108,9 @@ function itemCollisionEvent(unitCell, itemCell) {
 
     setTimeout(() => {
       itemCell.div.remove()
-      console.log(`${itemCell.name} gained to your inventory!`)
-      addItemToInventory(unitCell, axeCell.name)
+      // console.log(`${itemCell.name} gained to your inventory!`)
+      // addItemToInventory(unitCell, axeCell.name)
+      // updateCells()
 
       let itemBox = document.getElementById('inventory-container-box-axe')
       let div = document.createElement('div')
@@ -130,8 +135,6 @@ function itemCollisionEvent(unitCell, itemCell) {
       // new collisions from being detected/executed!!
       itemCell.onMap = false
       endgame.case1()
-    } else {
-      console.log("This tree would make a good campfire...I just need to cut it down first...")
     }
   }
 

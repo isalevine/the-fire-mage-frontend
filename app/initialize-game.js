@@ -1,8 +1,6 @@
 
 function initializeGame() {
 
-  window.gameWindow = document.getElementById('game-window')
-
   // create containers
   window.boardContainer = new Container("board")
     addHitbox(boardContainer)
@@ -27,14 +25,16 @@ function initializeGame() {
 function createTextContainer() {
   let textContainer = document.createElement("div")
   textContainer.classList.add("player-menu")
-  textContainer.id = "text-container"
+  textContainer.id = "player-menu-text-container"
 
   let textBox = document.createElement("div")
   textBox.classList.add("text-box")
-  textBox.id = "text-container-box"
+  textBox.id = "player-menu-text-box"
   textContainer.appendChild(textBox)
 
   gameWindow.appendChild(textContainer)
+
+  displayTextMessage("It's a cold night...better get a fire going...")
 }
 
 
@@ -42,11 +42,11 @@ function createTextContainer() {
 function createInventoryContainer() {
   let inventoryContainer = document.createElement("div")
   inventoryContainer.classList.add("player-menu")
-  inventoryContainer.id = "inventory-container"
+  inventoryContainer.id = "player-menu-inventory-container"
 
   let itemBox = document.createElement("div")
   itemBox.classList.add("item-box")
-  itemBox.id = "inventory-container-box-axe"
+  itemBox.id = "inventory-container-box-axe" // refactor to be item-generic??
   inventoryContainer.appendChild(itemBox)
 
   gameWindow.appendChild(inventoryContainer)

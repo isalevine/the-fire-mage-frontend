@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log("app.js is running!")
 
+  window.gameWindow = document.getElementById('game-window')
 
-  // load & prompt New/Continue menue BEFORE or AFTER this function??
-  setGameSession()
+  createStartMenu()
+
 
 
     // currently, unitContainer is the highest z-index

@@ -1,16 +1,4 @@
 
-function addUnitClickHandler(unitCell) {
-
-  // left click: select unit, display text-box
-  unitCell.div.addEventListener('click', () => {
-    console.log('click on unit.div detected...')
-    resetSelectedCell()
-    unitCell.div.classList.add('selected')
-    addSelectedFrame(unitCell)
-  })
-}
-
-
 
 function addItemClickHandler(itemCell) {
 
@@ -19,6 +7,16 @@ function addItemClickHandler(itemCell) {
     resetSelectedCell()
     itemCell.div.classList.add('selected')
     addSelectedFrame(itemCell)
+
+    if (itemCell.name === "axe") {
+      displayTextMessage("This axe might come in handy...")
+    }
+    else if (itemCell.name === "tree") {
+      displayTextMessage("This tree would make a good campfire...I just need to cut it down first...")
+    }
+
+
+
   })
 
   // right click:
@@ -37,6 +35,20 @@ function addItemClickHandler(itemCell) {
 
 }
 
+
+
+function addUnitClickHandler(unitCell) {
+
+  // left click: select unit, display text-box
+  unitCell.div.addEventListener('click', () => {
+    console.log('click on unit.div detected...')
+    resetSelectedCell()
+    unitCell.div.classList.add('selected')
+    addSelectedFrame(unitCell)
+
+    displayTextMessage("It's a cold night...better get a fire going...")
+  })
+}
 
 
 

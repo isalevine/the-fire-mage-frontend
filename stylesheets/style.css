@@ -3,6 +3,10 @@
 /* CURRENTLY, all hitboxes' border-colors are set to transparent
 in lieu of using toggleHitboxes() function. Change if needed. */
 
+
+/* refactor menus/inventory/etc. so that all divs
+share a common class for black background + gray border?? */
+
 body {
   font-family: "Times New Roman";
   background-color: darkred;
@@ -10,7 +14,7 @@ body {
 }
 
 .header {
-  font-style: italic;
+  font-family: luminari;
   color: yellow;
 
   background-color: firebrick;
@@ -18,6 +22,7 @@ body {
 
 .footer {
   position: fixed;
+  z-index: 100;
   bottom: 0;
   font-style: italic;
   color: orange;
@@ -50,7 +55,7 @@ body {
   border-radius: 5px;
   width: 840px;
   height: 640px;
-  cursor: url(./game-art/misc/sword-cursor-2-big.png), auto;
+  cursor: url(../game-art/misc/sword-cursor-2-big.png), auto;
 }
 
 .container {
@@ -166,6 +171,11 @@ body {
   height: 100%;
 }
 
+
+
+
+
+
 .cell.special-effect {
   z-index: 12;
 }
@@ -194,18 +204,102 @@ body {
 .zero-opacity {
   opacity: 0;
 }
+/* DITTO!! */
+.slow-fadeout {
+  opacity: 0;
+  transition: 1.3s ease-out;
+}
+
+
+
 
 
 
 
 /* START-MENU, PLAYER-MENU, TEXT-AREAS, END-GAME COVER, etc. */
 
-#text-container {
+#start-menu {
+  position: absolute;
+  z-index: 90;
+  width: 99.7%;
+  height: 99.7%;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #2F2D2D;
+  background-color: black;
+}
+
+#menu-text-container {
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  width: 70%;
+  height: 40%;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: transparent;
+  background-color: black;
+}
+
+#menu-form-container {
+  position: absolute;
+  left: 25%;
+  top: 60%;
+  width: 50%;
+  height: 25%;
+  border-style: transparent;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #2F2D2D;
+  background-color: black;
+}
+
+
+p.menu-text {
+  font-family: luminari;
+  font-style: italic;
+  color: yellow;
+  font-size: 80px;
+  text-align: center;
+}
+
+
+.menu-button {
+  position: absolute;
+  left: 20%;
+  width: 60%;
+  height: 30%;
+  color: LightGray;
+  font-size: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #2F2D2D;
+  background-color: black;
+  cursor: url(../game-art/misc/sword-cursor-2-big.png), auto;
+  outline-color: orange;
+}
+
+#new-game-button {
+  top: 15%;
+}
+
+#continue-game-button {
+  top: 60%;
+}
+
+
+
+
+
+#player-menu-text-container {
   left: 0;
   width: 500px;
 }
 
-#inventory-container {
+#player-menu-inventory-container {
   left: 500px;
   width: 336px;
 }
@@ -221,7 +315,7 @@ body {
   background-color: black;
 }
 
-.text-box {
+#player-menu-text-box {
   position: absolute;
   left: 7.5%;
   top: 19%;
@@ -233,6 +327,20 @@ body {
   border-color: #2F2D2D;
   background-color: black;
 }
+
+
+div.text-message {
+
+  /* font-style: italic; */
+  /* font-family: sans-serif; */
+  font-family: helvetica;
+  font-weight: 300;
+  font-size: 22px;
+  color: #A29A9A;
+  text-align: center;
+
+}
+
 
 .item-box {
   position: absolute;
@@ -252,4 +360,18 @@ body {
 /* use for endgame & animations */
 .unclickable {
   pointer-events: none;
+}
+
+
+/* base settings copied from start menu */
+#endgame-1-screen {
+  position: absolute;
+  z-index: 90;
+  width: 99.7%;
+  height: 99.7%;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #2F2D2D;
+  background-color: black;
 }

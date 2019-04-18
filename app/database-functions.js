@@ -96,23 +96,43 @@ function loadCells() {
       convertDbPosition(cell)
       console.log("cell: ", cell)
 
+
+      if (cell.name === "axe") {
+        window.axeCell = new Item("axe", "item-container", cell.position, cell.on_map)
+        axeCell.onMap = cell.on_map
+        axeCell.id = cell.id
+        axeCell.centerPosition.left += 36
+
+      }
+
+      // currently, MUST load axeCell first to update inventory-img_src...
       if (cell.name === "mage") {
         window.mageCell = new Unit("mage", "unit-container", cell.position, cell.on_map)
         mageCell.inventory = cell.inventory
         mageCell.id = cell.id
+
+        if (mageCell.inventory.includes("axe")) {
+          // copied from event-collider...refactor to be separate
+          // sfx or inventory-rendering function??
+          let itemBox = document.getElementById('inventory-container-box-axe')
+          let div = document.createElement('div')
+          itemBox.appendChild(div)
+          // NAME THIS "item-box-div" or some shit...
+          let img = document.createElement('img')
+          img.style = "width: 100%; height: 100%;"
+          img.src = axeCell.div.getElementsByTagName("img")[0].src
+          div.appendChild(img)
+        }
+
       }
 
-      else if (cell.name === "tree") {
+      if (cell.name === "tree") {
         window.treeCell = new Item("tree", "item-container", cell.position, cell.on_map)
         // treeCell.onMap = cell.on_map
         treeCell.id = cell.id
       }
 
-      else if (cell.name === "axe") {
-        window.axeCell = new Item("axe", "item-container", cell.position, cell.on_map)
-        axeCell.onMap = cell.on_map
-        axeCell.id = cell.id
-      }
+
 
 
 
