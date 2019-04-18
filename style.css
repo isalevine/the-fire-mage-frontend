@@ -85,24 +85,22 @@ body {
 
 }
 
-
-
+#terrain-container > .tile.terrain {
+  z-index: 4;
+}
 
 .tile {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-style: none;
   border-width: 0px;
   border-color: black;
+  /* to turn grid lines on, change
+  width and height to 42px */
 }
 
-#terrain-container > .cell.terrain {
-  z-index: 4;
-  /* to turn grid lines off, change
-  border-width to 0, and width
-  and height to 42px */
-}
+
 
 .cell {
   position: relative;
@@ -122,20 +120,6 @@ body {
   z-index: 6;
 }
 
-.axe {
-
-}
-
-.tree {
-
-}
-
-.mage {
-
-}
-
-
-
 .cell > .hitbox {
   position: absolute;
   border-style: solid;
@@ -149,9 +133,9 @@ body {
 
 }
 
-.hitbox.showHitboxOff {
+/* .hitbox.showHitboxOff {
   border-color: transparent;
-}
+} */
 
 
 
@@ -165,9 +149,9 @@ body {
   border-color: limegreen;
 }
 
-.cell.selected {
+/* .cell.selected {
 
-}
+} */
 
 
 .click-pointer {
@@ -182,7 +166,21 @@ body {
   height: 100%;
 }
 
+.cell.special-effect {
+  z-index: 12;
+}
+
 .cell.fadeout {
   opacity: 0;
   transition: 1s ease-in;
+}
+
+.cell.slow-fadeout {
+  opacity: 0;
+  transition: 2s ease-in;
+}
+
+.cell.slow-fadein {
+  opacity: 1;
+  transition: 1.5s ease-in;
 }

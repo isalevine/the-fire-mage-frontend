@@ -5,6 +5,32 @@ function createEndgame() {
     // case 1: mage collides with tree (with axe in inventory)
     case1: function() {
       console.log("INITIATE ENDGAME CASE #!: tree becomes campfire...")
+
+      // remove click-pointer
+      document.getElementsByClassName("click-pointer")[0].remove()
+      document.getElementById("selected-frame").remove()
+
+
+      // remove event-listeners on all cells to stop selecting/movement
+
+      treeCell.div.classList.add('slow-fadeout')
+      treeCell.div.classList.add('special-effect')
+      treeCell.div.classList.remove('item')
+
+      setTimeout(() => {
+        treeCell.div.getElementsByTagName('img')[0].src = './game-art/item/item-campfire-1.png'
+        treeCell.div.classList.remove('slow-fadeout')
+        treeCell.div.classList.add('slow-fadein')
+      }, 2000)
+
+
+
+
+      // move ~20 pixels north, while fading tree into campfire
+      mageCell.div.style.top = parseInt(getComputedStyle(treeCell.div).top.replace("px", "")) - 30 + "px"
+
+
+
     }
 
   }

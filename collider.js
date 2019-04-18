@@ -93,17 +93,20 @@ function itemCollisionEvent(unitCell, itemCell) {
   if (itemCell === axeCell && unitCell === mageCell) {
     console.log("itemCollisionEvent detected for axeCell and mageCell...")
     itemCell.onMap = false
-    // itemCell.position = null
-    itemCell.div.classList.add('fadeout')
+
+    itemCell.div.classList.remove('item')
+    itemCell.div.classList.add('fadeout', 'special-effect')
+    itemCell.div.style.top = parseInt(getComputedStyle(itemCell.div).top.replace("px", "")) - 30 + "px"
+
     setTimeout(() => {
       itemCell.div.remove()
       console.log(`${itemCell.name} gained to your inventory!`)
-      addItemToInventory(unitCell, itemCell)
+      addItemToInventory(unitCell, axeCell.name)
     }, 1000)
   }
 
   if (itemCell === treeCell && unitCell === mageCell) {
-    if (unitCell.inventory.includes(axeCell)) {
+    if (unitCell.inventory.includes(axeCell.name)) {
       // itemCell div is NOT removed -- .onMap is false to prevent
       // new collisions from being detected/executed!!
       itemCell.onMap = false
@@ -116,7 +119,7 @@ function itemCollisionEvent(unitCell, itemCell) {
 }
 
 
-function addItemToInventory(unitCell, itemCell) {
-  unitCell.inventory.push(itemCell)
+function addItemToInventory(unitCell, itemName) {
+  unitCell.inventory.push(itemName)
   console.log("unitCell.inventory: ", unitCell.inventory)
 }

@@ -45,9 +45,9 @@ function drawNewGame() {
   }
   saveNewTerrain()
 
-  window.mageCell = new Unit("mage", "unit-container", randomCoordinates(0, 150, 0, 450))
+  window.mageCell = new Unit("mage", "unit-container", randomCoordinates(0, 150, 40, 450))
     saveNewCell(mageCell)
-  window.treeCell = new Item("tree", "item-container", randomCoordinates(200, 500, 0, 450))
+  window.treeCell = new Item("tree", "item-container", randomCoordinates(200, 500, 70, 450))
     saveNewCell(treeCell)
   window.axeCell = new Item("axe", "item-container", randomCoordinates(600, 750, 0, 450))
     // NO IDEA why axeCell's centerPosition(also hitbox/div positions??) are

@@ -41,11 +41,9 @@ class Cell {
     let div = document.createElement('div')
     div.classList.add('cell')
 
-
     if (this.onMap) {
       container.appendChild(div)
     }
-
 
     this.div = div
     div.cell = this
@@ -53,15 +51,9 @@ class Cell {
     this.div.setAttribute('style', `left: ${this.position.left}px; top: ${this.position.top}px`)
   }
 
+
   hitbox() {
     return this.div.getElementsByClassName('hitbox')[0]
-  }
-
-  // is this function needed anymore??
-  // MORE IMPORTANT: make sure to add SaveToDatabase during moves/collisions...
-  reDraw() {
-    this.div.setAttribute('style', `left: ${this.position.left}px; top: ${this.position.top}px`)
-    // collider.collisionCheck()
   }
 
 }

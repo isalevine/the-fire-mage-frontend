@@ -189,7 +189,7 @@ function updateCells() {
         name: `${div.cell.name}`,
         cell_type: `${div.cell.cellType}`,
         on_map: `${div.cell.onMap}`,
-        inventory: `${div.cell.inventory}`,
+        inventory: div.cell.inventory,
         position_left: `${div.cell.position.left}`,
         position_top: `${div.cell.position.top}`,
         position_width: `${div.cell.position.width}`,
