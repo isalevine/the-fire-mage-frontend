@@ -331,6 +331,56 @@ p.menu-text {
   top: 60%;
 }
 
+#continue-game-error-container {
+  position: absolute;
+  top: 43%;
+  left: 30%;
+  width: 40%;
+  height: 15%;
+  color: LightGray;
+  font-size: 20px;
+  border-style: transparent;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #2F2D2D;
+  background-color: black;
+}
+
+
+#continue-game-error-mage {
+  position: absolute;
+  top: 7.75%;
+  left: 7%;
+  width: 23%;
+  height: 80%;
+  color: LightGray;
+  font-size: 20px;
+  border-style: transparent;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #2F2D2D;
+  background-color: black;
+}
+
+
+.continue-game-error-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+
+.continue-game-error-text {
+  position: absolute;
+  top: 13%;
+  left: 37.5%;
+  width: 60%;
+  height: 70%;
+
+  font-family: helvetica;
+  font-weight: 300;
+  color: LightGray;
+}
 
 
 

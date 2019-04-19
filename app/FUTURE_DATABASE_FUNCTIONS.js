@@ -3,13 +3,6 @@
 
 
 
-function updateGameSession() {
-  // POST/PATCH requests to current gameSession - game completed,
-}
-
-
-
-
 
 
 

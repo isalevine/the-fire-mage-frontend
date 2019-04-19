@@ -59,17 +59,64 @@ function createStartMenu(){
 
       window.browserGameSessionId = (localStorage.getItem("browserGameSessionId"))   // use this for "continue game"
 
-      setTimeout(() => {
-        startMenu.classList.add('slow-fadeout')
-        setTimeout(()=> {
-          startMenu.remove()
-        }, 1100)
-      }, 250)
+      fetch(GAME_SESSION_URL + `${browserGameSessionId}`)
+      .then(res => res.json())
+      .then(previousGameSession => {
+        console.log("data from fetch: ", previousGameSession)
+        if (previousGameSession.complete || !previousGameSession.in_progress) {
+
+          // alert("Game already completed! Please start a new one.")
+          displayContinueGameError()
+
+
+        } else {
+          setTimeout(() => {
+            startMenu.classList.add('slow-fadeout')
+            setTimeout(()=> {
+              startMenu.remove()
+            }, 1100)
+          }, 250)
+
+          setGameSession()
+        }
+      })
 
 
 
-      setGameSession()
+      // setTimeout(() => {
+      //   startMenu.classList.add('slow-fadeout')
+      //   setTimeout(()=> {
+      //     startMenu.remove()
+      //   }, 1100)
+      // }, 250)
+      //
+      //
+      //
+      // setGameSession()
     })
 
   createInstructions()
+}
+
+
+function displayContinueGameError() {
+  let startMenu = document.getElementById('start-menu')
+
+  let errorContainer = document.createElement('div')
+  errorContainer.id = "continue-game-error-container"
+  startMenu.appendChild(errorContainer)
+
+  let mageDiv = document.createElement('div')
+  mageDiv.id = "continue-game-error-mage"
+  errorContainer.appendChild(mageDiv)
+
+  let mageImg = document.createElement('img')
+  mageImg.classList.add('continue-game-error-img')
+  mageImg.src = "./game-art/unit/unit-mage-1.png"
+  mageDiv.appendChild(mageImg)
+
+  let errorText = document.createElement('div')
+  errorText.classList.add("continue-game-error-text")
+  errorText.textContent = "Game already completed! Please start a new game."
+  errorContainer.appendChild(errorText)
 }

@@ -9,6 +9,6 @@ function createInstructions() {
   instructionText.classList.add('instruction-text')
   instructionContainer.appendChild(instructionText)
 
-  instructionText.innerHTML = "<strong>LEFT CLICK</strong> to select a unit or item. <br> <strong>RIGHT CLICK</strong> to move your unit when selected. <br> <strong>INTERACT WITH ITEMS</strong> by moving your unit on top of them. <br> <em><strong>It's cold tonight...better get a campfire going...</strong></em>"
+  instructionText.innerHTML = "<strong>LEFT CLICK</strong> to select your mage or an item. <br> <strong>RIGHT CLICK WITH YOUR MAGE SELECTED</strong> to move. <br> <strong>INTERACT WITH ITEMS</strong> by moving your mage on top of them. <br> <em><strong>It's cold tonight...better get a campfire going...</strong></em>"
 
 }

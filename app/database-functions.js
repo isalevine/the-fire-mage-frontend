@@ -1,7 +1,7 @@
 
 
-// REMEMBER TO USE SQL CHECKS TO VERIFY IF DATA EXISTS
-// BEFORE EXECUTING FETCH!!
+// STILL NO FUNCTIONS TO CHECK AND DESTROY
+// EXPIRED OR COMPLETED GAME SESSIONS!!
 
 
 API_URL = "http://localhost:3000/api/v1/"
@@ -222,9 +222,26 @@ function updateCells() {
     .then(data => {
       console.log("saveNewCell return data: ", data)
     })
-
   })
+}
 
 
 
+function updateGameSession() {
+  let config = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      in_progress: `${currentGameSession.in_progress}`,
+      complete: `${currentGameSession.complete}`,
+    })
+  }
+
+  fetch(GAME_SESSION_URL + `${currentGameSession.id}`, config)
+  .then(res => res.json())
+  .then(data => {
+    console.log("PATCH gameSession return data: ", data)
+  })
 }

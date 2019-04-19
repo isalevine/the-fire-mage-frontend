@@ -6,6 +6,9 @@ function createEndgame() {
     case1: function() {
       console.log("INITIATE ENDGAME CASE #!: tree becomes campfire...")
       document.body.classList.add('unclickable')
+      currentGameSession.in_progress = false
+      currentGameSession.complete = true
+      updateGameSession()
 
       document.getElementsByClassName("click-pointer")[0].remove()
       document.getElementById("selected-frame").remove()
