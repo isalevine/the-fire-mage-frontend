@@ -1,6 +1,6 @@
 # Welcome to The Fire Mage!
 
-  
+![gif of demo for The Fire Mage](https://raw.githubusercontent.com/isalevine/the-fire-mage-frontend/master/firemage-demo.gif)
 
 The Fire Mage is a proof-of-concept game for the underlying vanilla JavaScript engine, tentatively titled Real-Time Unit Mover (RTUM). 
 
