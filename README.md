@@ -27,21 +27,11 @@ It is a top-down, mouse-based interface with controls and game logic based on Wa
 
 Clone this repo onto your machine. ```cd the-fire-mage-frontend``` to move into the folder.
 
-  
-
-In your console, run ```npm install``` to install packages.
-
-  
 
 Make sure you have the Rails backend cloned down, installed, and running on localhost:3000. [Directions can be found here.](https://github.com/isalevine/the-fire-mage-backend)
 
   
-
-Run ```npm start``` and enter ```Y``` when prompted to run on localhost:3001.
-
-  
-
-Open your browser (Chrome recommended), and navigate to localhost:3001. Enjoy!
+Use your browser (Chrome recommended) to open index.html. Enjoy!
 
   
   
