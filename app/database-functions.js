@@ -62,10 +62,6 @@ function saveNewCell(cell) {
 
 
 function saveNewTerrain() {
-  // create new terrain
-
-  let terrainData = JSON.stringify(allTerrain)
-
   let config = {
     method: "POST",
     headers: {"Content-Type": "application/json"},
@@ -157,30 +153,41 @@ function convertDbPosition(cell) {
 
 function loadTerrains() {
 
-  fetch(GAME_SESSION_URL + `${currentGameSession.id}` + "/terrains/")
+  fetch(GAME_SESSION_URL + `${currentGameSession.id}` + "/all_terrains/")
   .then(res => res.json())
   .then(data => {
-    allTerrain = Array.from(data)
+    // console.log(data)
+    // allTerrain = data["img_src_array"]
 
-    allTerrain.forEach(tile => {
-      let xCounter = tile.grid_x
-      let yCounter = tile.grid_y
-      let img_src = tile.img_src
+    let xCounter = 1
+    let yCounter = 1
 
-      // create cells inside (currently) board-container
-      let terrainTile = document.createElement('div')
-      terrainTile.id = `terrain-${yCounter}x${xCounter}`
-      terrainTile.classList.add('tile', 'terrain')
-      terrainTile.style.gridColumnStart = `${xCounter}`
-      terrainTile.style.gridColumnEnd = `${xCounter + 1}`
-      boardContainer.div.appendChild(terrainTile)
+    data["img_src_array"].forEach(img_src_num => {
+      while (yCounter <= 12) {
+        while (xCounter <= 20) {
+          // CONSIDER PUTTING THE IMG PATH IN A CONSTANTS FILE??
+          let img_src = `./game-art/terrain/terrain-${img_src_num}.png`
 
-      // fill cell with a terrain image (terrain 1-4)
-      let terrainImg = document.createElement('img')
-      terrainImg.src = img_src
-      terrainImg.style.width = "100%"
-      terrainImg.style.height = "100%"
-      terrainTile.appendChild(terrainImg)
+          // create cells inside (currently) board-container
+          let terrainTile = document.createElement('div')
+          terrainTile.id = `terrain-${yCounter}x${xCounter}`
+          terrainTile.classList.add('tile', 'terrain')
+          terrainTile.style.gridColumnStart = `${xCounter}`
+          terrainTile.style.gridColumnEnd = `${xCounter + 1}`
+          boardContainer.div.appendChild(terrainTile)
+
+          // fill cell with a terrain image (terrain 1-4)
+          let terrainImg = document.createElement('img')
+          terrainImg.src = img_src
+          terrainImg.style.width = "100%"
+          terrainImg.style.height = "100%"
+          terrainTile.appendChild(terrainImg)
+
+          xCounter += 1
+          yCounter += 1
+        }
+      }
+
     })
 
   })
