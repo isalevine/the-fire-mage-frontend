@@ -72,7 +72,7 @@ function saveNewTerrain() {
     body: JSON.stringify({allTerrain})
   }
 
-  fetch(GAME_SESSION_URL + `${currentGameSession.id}` + "/terrains/", config)
+  fetch(GAME_SESSION_URL + `${currentGameSession.id}` + "/all_terrains/", config)
   .then(res => res.json())
   .then(data => {
     console.log(data)
