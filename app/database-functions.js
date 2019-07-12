@@ -13,16 +13,24 @@ GAME_SESSION_URL = API_URL + "game_sessions/"
 
 function saveNewGameSession() {
   console.log("saveNewGameSession running...")
-  // create new gameSession
-  fetch(GAME_SESSION_URL, {method: "POST"})
-  .then(res => res.json())
-  .then(newGameSession => {
-    console.log("newGameSession from saveNewGameSession()'s POST request: ", newGameSession)
-    localStorage.setItem("browserGameSessionId", `${newGameSession.id}`)
-    currentGameSession = newGameSession
-    console.log("currentGameSession: ", currentGameSession)
-    drawNewGame()
-  })
+
+  // BENCHMARK TESTING 
+  let timeStart = console.time()
+  console.log("timeStart: ", timeStart)
+
+  // test generating/saving tiles 10 times => use similar format for Loading function
+  for (let i = 0; i < 10; i++) {
+    fetch(GAME_SESSION_URL, {method: "POST"})
+    .then(res => res.json())
+    .then(newGameSession => {
+      console.log("newGameSession from saveNewGameSession()'s POST request: ", newGameSession)
+      localStorage.setItem("browserGameSessionId", `${newGameSession.id}`)
+      currentGameSession = newGameSession
+      console.log("currentGameSession: ", currentGameSession)
+      drawNewGame()
+    })
+  }
+
 }
 
 
@@ -62,17 +70,14 @@ function saveNewCell(cell) {
 
 
 function saveNewTerrain() {
-  // create new terrain
-
-  let terrainData = JSON.stringify(allTerrain)
-
   let config = {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({allTerrain})
   }
 
-  fetch(GAME_SESSION_URL + `${currentGameSession.id}` + "/terrains/", config)
+  // fetch(GAME_SESSION_URL + `${currentGameSession.id}` + "/terrains/", config)
+  fetch(GAME_SESSION_URL + `${currentGameSession.id}` + "/all_terrains/", config)
   .then(res => res.json())
   .then(data => {
     console.log(data)
@@ -156,33 +161,45 @@ function convertDbPosition(cell) {
 
 function loadTerrains() {
 
-  fetch(GAME_SESSION_URL + `${currentGameSession.id}` + "/terrains/")
+  fetch(GAME_SESSION_URL + `${currentGameSession.id}` + "/all_terrains/")
   .then(res => res.json())
   .then(data => {
-    allTerrain = Array.from(data)
+    console.log(data)
+    allTerrain = data[0]["img_src_array"]
 
-    allTerrain.forEach(tile => {
-      let xCounter = tile.grid_x
-      let yCounter = tile.grid_y
-      let img_src = tile.img_src
+    
+    let yCounter = 1
+    let index = 0
+    while (yCounter <= 12) {
+      let xCounter = 1
+      while (xCounter <= 20) {
+        let img_src_num = allTerrain[index]
+        // CONSIDER PUTTING THE IMG PATH IN A CONSTANTS FILE??
+        let img_src = `./game-art/terrain/terrain-${img_src_num}.png`
 
-      // create cells inside (currently) board-container
-      let terrainTile = document.createElement('div')
-      terrainTile.id = `terrain-${yCounter}x${xCounter}`
-      terrainTile.classList.add('tile', 'terrain')
-      terrainTile.style.gridColumnStart = `${xCounter}`
-      terrainTile.style.gridColumnEnd = `${xCounter + 1}`
-      boardContainer.div.appendChild(terrainTile)
+        // create cells inside (currently) board-container
+        let terrainTile = document.createElement('div')
+        terrainTile.id = `terrain-${yCounter}x${xCounter}`
+        terrainTile.classList.add('tile', 'terrain')
+        terrainTile.style.gridColumnStart = `${xCounter}`
+        terrainTile.style.gridColumnEnd = `${xCounter + 1}`
+        boardContainer.div.appendChild(terrainTile)
 
-      // fill cell with a terrain image (terrain 1-4)
-      let terrainImg = document.createElement('img')
-      terrainImg.src = img_src
-      terrainImg.style.width = "100%"
-      terrainImg.style.height = "100%"
-      terrainTile.appendChild(terrainImg)
+        // fill cell with a terrain image (terrain 1-4)
+        let terrainImg = document.createElement('img')
+        terrainImg.src = img_src
+        terrainImg.style.width = "100%"
+        terrainImg.style.height = "100%"
+        terrainTile.appendChild(terrainImg)
+
+        index += 1
+        xCounter += 1
+      }
+      yCounter += 1
+    }
+
     })
 
-  })
 }
 
 
