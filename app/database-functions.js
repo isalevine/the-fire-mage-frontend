@@ -13,16 +13,24 @@ GAME_SESSION_URL = API_URL + "game_sessions/"
 
 function saveNewGameSession() {
   console.log("saveNewGameSession running...")
-  // create new gameSession
-  fetch(GAME_SESSION_URL, {method: "POST"})
-  .then(res => res.json())
-  .then(newGameSession => {
-    console.log("newGameSession from saveNewGameSession()'s POST request: ", newGameSession)
-    localStorage.setItem("browserGameSessionId", `${newGameSession.id}`)
-    currentGameSession = newGameSession
-    console.log("currentGameSession: ", currentGameSession)
-    drawNewGame()
-  })
+
+  // BENCHMARK TESTING 
+  let timeStart = console.time()
+  console.log("timeStart: ", timeStart)
+
+  // test generating/saving tiles 10 times => use similar format for Loading function
+  for (let i = 0; i < 10; i++) {
+    fetch(GAME_SESSION_URL, {method: "POST"})
+    .then(res => res.json())
+    .then(newGameSession => {
+      console.log("newGameSession from saveNewGameSession()'s POST request: ", newGameSession)
+      localStorage.setItem("browserGameSessionId", `${newGameSession.id}`)
+      currentGameSession = newGameSession
+      console.log("currentGameSession: ", currentGameSession)
+      drawNewGame()
+    })
+  }
+
 }
 
 
