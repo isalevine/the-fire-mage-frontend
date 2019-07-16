@@ -14,12 +14,12 @@ GAME_SESSION_URL = API_URL + "game_sessions/"
 function saveNewGameSession() {
   console.log("saveNewGameSession running...")
 
-  // BENCHMARK TESTING 
-  let timeStart = console.time()
-  console.log("timeStart: ", timeStart)
+  // // BENCHMARK TESTING 
+  // let timeStart = console.time()
+  // console.log("timeStart: ", timeStart)
 
-  // test generating/saving tiles 10 times => use similar format for Loading function
-  for (let i = 0; i < 10; i++) {
+  // // test generating/saving tiles 10 times => use similar format for Loading function
+  // for (let i = 0; i < 10; i++) {
     fetch(GAME_SESSION_URL, {method: "POST"})
     .then(res => res.json())
     .then(newGameSession => {
@@ -29,7 +29,7 @@ function saveNewGameSession() {
       console.log("currentGameSession: ", currentGameSession)
       drawNewGame()
     })
-  }
+  // }
 
 }
 
@@ -260,5 +260,27 @@ function updateGameSession() {
   .then(res => res.json())
   .then(data => {
     console.log("PATCH gameSession return data: ", data)
+
+    checkExpiration()
   })
+}
+
+
+function checkExpiration() {
+  // check ALL gameSessions for expiration date -
+  // if past expiration, get ALL cells/terrain/inventory by
+  // gameSession id, and DELETE them, then DELETE gameSession
+
+  // CURRENT (first iteration): delete GameSession ONLY! => need to delete other cells too...
+  if (currentGameSession.in_progress === "false" || currentGameSession.complete === "true") {
+    let config = {
+      method: "DELETE"
+    }
+  
+    fetch(GAME_SESSION_URL + `${currentGameSession.id}`, config)
+    .then(res => res.json())
+    .then(data => {
+      console.log("DELETE gameSession return data: ", data)
+    })
+  }
 }
