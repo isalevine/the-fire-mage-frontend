@@ -272,7 +272,9 @@ function checkExpiration() {
   // gameSession id, and DELETE them, then DELETE gameSession
 
   // CURRENT (first iteration): delete GameSession ONLY! => need to delete other cells too...
-  if (currentGameSession.in_progress === "false" || currentGameSession.complete === "true") {
+  if (currentGameSession.complete || !currentGameSession.in_progress) {
+    console.log("Endgame DELETE request detected for GameSession!")
+
     let config = {
       method: "DELETE"
     }
