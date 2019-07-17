@@ -271,8 +271,11 @@ function checkExpiration() {
   // if past expiration, get ALL cells/terrain/inventory by
   // gameSession id, and DELETE them, then DELETE gameSession
 
+  // implement expiration_date as part of GameSession saved to database?
+  let expiration_date = Date.parse(currentGameSession.created_at) + 600000  // 10 minute limit
+
   // CURRENT (first iteration): delete GameSession ONLY! => need to delete other cells too...
-  if (currentGameSession.complete || !currentGameSession.in_progress) {
+  if (currentGameSession.complete || !currentGameSession.in_progress || Date.now() > expiration_date) {
     console.log("Endgame DELETE request detected for GameSession!")
 
     let config = {
