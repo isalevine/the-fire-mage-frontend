@@ -26,6 +26,7 @@ function drawNewGame() {
 
       // fill cell with a terrain image (terrain 1-4)
       let terrainImg = document.createElement('img')
+      // CONSIDER PUTTING THE IMG PATH IN A CONSTANTS FILE??
       terrainImg.src = `./game-art/terrain/terrain-${roll(4)}.png`
       terrainImg.style.width = "100%"
       terrainImg.style.height = "100%"
