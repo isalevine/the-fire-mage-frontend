@@ -274,7 +274,7 @@ function checkExpiration() {
   // implement expiration_date as part of GameSession saved to database?
   let expiration_date = Date.parse(currentGameSession.created_at) + 600000  // 10 minute limit
 
-  // CURRENT (first iteration): delete GameSession ONLY! => need to delete other cells too...
+  // CURRENT (second iteration): GameSession, AllTerrain, and Cells for the game_session_id are all deleted
   if (currentGameSession.complete || !currentGameSession.in_progress || Date.now() > expiration_date) {
     console.log("Endgame DELETE request detected for GameSession!")
 
@@ -289,3 +289,6 @@ function checkExpiration() {
     })
   }
 }
+
+// write another function that recursively calls checkExpiration() on all game_session_ids LOWER 
+// than the current one? (this can be called RIGHT AFTER a new game is created...)
