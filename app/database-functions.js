@@ -3,8 +3,8 @@
 // STILL NO FUNCTIONS TO CHECK AND DESTROY
 // EXPIRED OR COMPLETED GAME SESSIONS!!
 
-// API_URL = "https://the-fire-mage-backend.herokuapp.com/api/v1/"
-API_URL = "http://localhost:3000/api/v1/"
+// API_URL = "http://localhost:3000/api/v1/"
+API_URL = "https://the-fire-mage-backend.herokuapp.com/api/v1/"
 GAME_SESSION_URL = API_URL + "game_sessions/"
 
 
