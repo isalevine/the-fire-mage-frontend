@@ -4,7 +4,7 @@
 // EXPIRED OR COMPLETED GAME SESSIONS!!
 
 
-API_URL = "http://localhost:3000/api/v1/"
+API_URL = "https://the-fire-mage-backend.herokuapp.com/"
 GAME_SESSION_URL = API_URL + "game_sessions/"
 
 
