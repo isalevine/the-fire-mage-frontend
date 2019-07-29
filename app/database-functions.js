@@ -3,8 +3,8 @@
 // STILL NO FUNCTIONS TO CHECK AND DESTROY
 // EXPIRED OR COMPLETED GAME SESSIONS!!
 
-
-API_URL = "https://the-fire-mage-backend.herokuapp.com/api/v1/"
+// API_URL = "https://the-fire-mage-backend.herokuapp.com/api/v1/"
+API_URL = "http://localhost:3000/api/v1/"
 GAME_SESSION_URL = API_URL + "game_sessions/"
 
 
@@ -96,52 +96,64 @@ function loadCells() {
   .then(data => {
     loadedCells = Array.from(data)
     console.log(loadedCells)
+
+    // implemented sortedCells to ensure that axeCell is loaded first -- REFACTOR!!
+    // (aim to either remove order-necessitating bug, or create a modular
+    // custom-sorter function for open-sourcing...)
+    sortedCells = []
     loadedCells.forEach(cell => {
+      if (cell.name === "axe") {
+        sortedCells.unshift(cell)
+      } else {
+        sortedCells.push(cell)
+      }
+    })
+
+    sortedCells.forEach(cell => {
       convertDbPosition(cell)
       console.log("cell: ", cell)
-
-
-      if (cell.name === "axe") {
-        window.axeCell = new Item("axe", "item-container", cell.position, cell.on_map)
-        axeCell.onMap = cell.on_map
-        axeCell.id = cell.id
-        axeCell.centerPosition.left += 36
-
-      }
-
-      // currently, MUST load axeCell first to update inventory-img_src...
-      if (cell.name === "mage") {
-        window.mageCell = new Unit("mage", "unit-container", cell.position, cell.on_map)
-        mageCell.inventory = cell.inventory
-        mageCell.id = cell.id
-
-        if (mageCell.inventory.includes("axe")) {
-          // copied from event-collider...refactor to be separate
-          // sfx or inventory-rendering function??
-          let itemBox = document.getElementById('inventory-container-box-axe')
-          let div = document.createElement('div')
-          itemBox.appendChild(div)
-          // NAME THIS "item-box-div" or some shit...
-          let img = document.createElement('img')
-          img.style = "width: 100%; height: 100%;"
-          img.src = axeCell.div.getElementsByTagName("img")[0].src
-          div.appendChild(img)
-        }
-
-      }
-
-      if (cell.name === "tree") {
-        window.treeCell = new Item("tree", "item-container", cell.position, cell.on_map)
-        // treeCell.onMap = cell.on_map
-        treeCell.id = cell.id
-      }
-
-
-
-
-
+      populateCell(cell)
     })
+
   })
+}
+
+
+function populateCell(cell) {
+  if (cell.name === "axe") {
+    window.axeCell = new Item("axe", "item-container", cell.position, cell.on_map)
+    axeCell.onMap = cell.on_map
+    axeCell.id = cell.id
+    axeCell.centerPosition.left += 36
+
+  }
+
+  // currently, MUST load axeCell first to update inventory-img_src...
+  if (cell.name === "mage") {
+    window.mageCell = new Unit("mage", "unit-container", cell.position, cell.on_map)
+    mageCell.inventory = cell.inventory
+    mageCell.id = cell.id
+
+    if (mageCell.inventory.includes("axe")) {
+      // copied from event-collider...refactor to be separate
+      // sfx or inventory-rendering function??
+      let itemBox = document.getElementById('inventory-container-box-axe')
+      let div = document.createElement('div')
+      itemBox.appendChild(div)
+      // NAME THIS "item-box-div" or some shit...
+      let img = document.createElement('img')
+      img.style = "width: 100%; height: 100%;"
+      img.src = axeCell.div.getElementsByTagName("img")[0].src
+      div.appendChild(img)
+    }
+
+  }
+
+  if (cell.name === "tree") {
+    window.treeCell = new Item("tree", "item-container", cell.position, cell.on_map)
+    // treeCell.onMap = cell.on_map
+    treeCell.id = cell.id
+  }
 }
 
 
