@@ -80,6 +80,9 @@ function createStartMenu(){
           setGameSession()
         }
       })
+      .catch((error) => {
+        displayContinueGameError()
+      })
 
 
 
