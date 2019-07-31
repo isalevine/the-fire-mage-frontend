@@ -60,7 +60,14 @@ function createStartMenu(){
       window.browserGameSessionId = (localStorage.getItem("browserGameSessionId"))   // use this for "continue game"
 
       fetch(GAME_SESSION_URL + `${browserGameSessionId}`)
-      .then(res => res.json())
+      .then(response => {
+        if (!response.ok) {
+          displayContinueGameError()
+        } else {
+          response.json()
+        }
+      })
+      // .then(res => res.json())
       .then(previousGameSession => {
         console.log("data from fetch: ", previousGameSession)
         if (previousGameSession.complete || !previousGameSession.in_progress) {
@@ -80,9 +87,7 @@ function createStartMenu(){
           setGameSession()
         }
       })
-      .catch((error) => {
-        displayContinueGameError()
-      })
+
 
 
 
