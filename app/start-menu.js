@@ -62,16 +62,15 @@ function createStartMenu(){
 
       fetch(GAME_SESSION_URL + `${browserGameSessionId}`)
       .then(response => {
-        if (!response.ok) {
-          gameFound = false;
-        } else {
-          response.json()
+        if (response.ok) {
+          return response
         }
+        throw Error(response.statusText);
       })
-      // .then(res => res.json())
+      .then(response => response.json())
       .then(previousGameSession => {
         console.log("data from fetch: ", previousGameSession)
-        if (previousGameSession.complete || !previousGameSession.in_progress || !gameFound) {
+        if (previousGameSession.complete || !previousGameSession.in_progress) {
 
           // alert("Game already completed! Please start a new one.")
           displayContinueGameError()
@@ -87,6 +86,9 @@ function createStartMenu(){
 
           setGameSession()
         }
+      })
+      .catch(error => {
+        displayContinueGameError();
       })
 
 
