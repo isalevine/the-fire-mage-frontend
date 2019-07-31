@@ -3,8 +3,8 @@
 // STILL NO FUNCTIONS TO CHECK AND DESTROY
 // EXPIRED OR COMPLETED GAME SESSIONS!!
 
-// API_URL = "http://localhost:3000/api/v1/"
-API_URL = "https://the-fire-mage-backend.herokuapp.com/api/v1/"
+API_URL = "http://localhost:3000/api/v1/"
+// API_URL = "https://the-fire-mage-backend.herokuapp.com/api/v1/"
 GAME_SESSION_URL = API_URL + "game_sessions/"
 
 
@@ -278,15 +278,12 @@ function updateGameSession() {
 
 
 function checkExpiration() {
-  // check ALL gameSessions for expiration date -
-  // if past expiration, get ALL cells/terrain/inventory by
-  // gameSession id, and DELETE them, then DELETE gameSession
-
-  // implement expiration_date as part of GameSession saved to database?
-  let expiration_date = Date.parse(currentGameSession.created_at) + 600000  // 10 minute limit
+  // all GameSessions are checked on Ruby backend for expiration when new game is created
+  // => no need to use JS to check or handle expiration
+  // => THUS, this function is only for deleting completed/non-in-progress games...
 
   // CURRENT (second iteration): GameSession, AllTerrain, and Cells for the game_session_id are all deleted
-  if (currentGameSession.complete || !currentGameSession.in_progress || Date.now() > expiration_date) {
+  if (currentGameSession.complete || !currentGameSession.in_progress) {
     console.log("Endgame DELETE request detected for GameSession!")
 
     let config = {
