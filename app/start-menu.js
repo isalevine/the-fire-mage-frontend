@@ -56,13 +56,14 @@ function createStartMenu(){
 
     continueGameButton.addEventListener('click', () => {
       console.log("Continue game!")
+      let gameFound = true;
 
       window.browserGameSessionId = (localStorage.getItem("browserGameSessionId"))   // use this for "continue game"
 
       fetch(GAME_SESSION_URL + `${browserGameSessionId}`)
       .then(response => {
         if (!response.ok) {
-          displayContinueGameError()
+          gameFound = false;
         } else {
           response.json()
         }
@@ -70,7 +71,7 @@ function createStartMenu(){
       // .then(res => res.json())
       .then(previousGameSession => {
         console.log("data from fetch: ", previousGameSession)
-        if (previousGameSession.complete || !previousGameSession.in_progress) {
+        if (previousGameSession.complete || !previousGameSession.in_progress || !gameFound) {
 
           // alert("Game already completed! Please start a new one.")
           displayContinueGameError()
