@@ -25,6 +25,9 @@ function createStartMenu(){
   // menuForm.id = "menu-form"
 
 
+  // TIME TO REFACTOR TO HANDLE ASYNC --
+  // need to have start menu WAIT for game_session to initialize
+  // AND be drawn before fading out...
   let newGameButton = document.createElement('button')
   newGameButton.id = "new-game-button"
   newGameButton.classList.add("menu-button")
