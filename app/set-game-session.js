@@ -20,4 +20,6 @@ function setGameSession() {
     saveNewGameSession()
   }
 
+  // is this return necessary to time the async/await in start-menu??
+  // return "complete"
 }

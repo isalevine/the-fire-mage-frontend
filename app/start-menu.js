@@ -34,20 +34,29 @@ function createStartMenu(){
   menuFormContainer.appendChild(newGameButton)
   newGameButton.textContent = "New Game"
 
-    newGameButton.addEventListener('click', () => {
+    newGameButton.addEventListener('click', async () => {
       console.log("Start new game!")
 
       window.browserGameSessionId = undefined;   // use this for "new game"
 
+      // CURRENT METHOD: setTimeout to time drawing/loading game...
+      //
+      // setTimeout(() => {
+      //   startMenu.classList.add('slow-fadeout')
+      //   setTimeout(()=> {
+      //     startMenu.remove()
+      //   }, 1100)
+      // }, 250)
+      // 
+      // 
+      // setGameSession()
+
+      await setGameSession();
+      startMenu.classList.add('slow-fadeout');
       setTimeout(() => {
-        startMenu.classList.add('slow-fadeout')
-        setTimeout(()=> {
-          startMenu.remove()
-        }, 1100)
-      }, 250)
+        startMenu.remove()
+      }, 1100)
 
-
-      setGameSession()
     })
 
 
