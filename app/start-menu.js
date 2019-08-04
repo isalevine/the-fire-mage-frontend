@@ -134,3 +134,8 @@ function displayContinueGameError() {
   errorText.textContent = "Game already completed! Please start a new game."
   errorContainer.appendChild(errorText)
 }
+
+
+function displayLoadingGame() {
+  // use this function to handle async loading of new/continue games
+}
