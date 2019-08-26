@@ -14,6 +14,7 @@
     * Refactor to change over-use of window object to recognize cells (collider?)
     * Add in patrolling enemy, 2nd player unit, and impassible wall/item
     * Implement flexbox for game container, help menu/directions, etc.
+    * TESTS!! worth talking to other devs (Sailor, etc.) about WHAT is worth testing, and how to write them for vanilla JS!
 
 
 ## Stretch Goals
