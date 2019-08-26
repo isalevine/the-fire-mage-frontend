@@ -12,3 +12,11 @@
     * Create documentation for making cells, events, etc. (in script form?)
     * Create open-source directions/documentation/credits list (+ invite cohort?)
     * Refactor to change over-use of window object to recognize cells (collider?)
+    * Add in patrolling enemy, 2nd player unit, and impassible wall/item
+
+
+## Stretch Goals
+
+    * Character portraits! (bug Brian about making pixel art for them?)
+    * Customize pixel art with different colors--reach out to artist and offer to pay?
+    * Sound effects and music--compose both!
