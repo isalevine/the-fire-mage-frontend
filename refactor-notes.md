@@ -13,6 +13,7 @@
     * Create open-source directions/documentation/credits list (+ invite cohort?)
     * Refactor to change over-use of window object to recognize cells (collider?)
     * Add in patrolling enemy, 2nd player unit, and impassible wall/item
+    * Implement flexbox for game container, help menu/directions, etc.
 
 
 ## Stretch Goals
