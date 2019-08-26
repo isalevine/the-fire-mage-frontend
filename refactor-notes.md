@@ -21,3 +21,4 @@
     * Character portraits! (bug Brian about making pixel art for them?)
     * Customize pixel art with different colors--reach out to artist and offer to pay?
     * Sound effects and music--compose both!
+    * Implement multiple controls/inputs (keyboard, eventually game controller?)
