@@ -1,7 +1,5 @@
 // originally copied from ../classes.js
 
-import Cell from 'Cell.js';
-
 class Item extends Cell {
     constructor(name, container, position, onMap) {
       super(container, position, onMap)

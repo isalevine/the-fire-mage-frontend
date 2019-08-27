@@ -1,6 +1,6 @@
 // originally copied from ../classes.js
 
-export default class Cell {
+class Cell {
     constructor(containerQuery, position, onMap = true) {
       this.position = position;
       this.onMap = onMap
