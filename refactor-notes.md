@@ -5,6 +5,19 @@
 
     * Create vanilla JS components for cells (Units, Items, Terrain, Walls), Events, and Hitboxes
     * Create an initializer that will load a script of custom components/events and render them
+        * Use JSON files? ie:
+        ```javascript
+        {
+            scenario: {
+                maps: {},
+                cells: {
+                    units: {},
+                    items: {},
+                },
+                events: {},
+            }
+        }
+        ```
     * Create multiple maps--first 2x outdoor, then indoor/outdoor?
     * Create different highlights for selectable objects (green for Player Units, blue for Items, red for Enemy Units, and icons for stairs/doors/warps?)
     * Create HUD with game info, Help/Options/Info menus, save/load, and selected Cell readout?
