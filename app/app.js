@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log("app.js is running!")
 
-  window.gameWindow = document.getElementById('game-window')
+  // window.gameWindow = document.getElementById('game-window')
 
-  createStartMenu()
+  // createStartMenu()
+
+
+  let appContainer = new AppContainer;
 
 
 

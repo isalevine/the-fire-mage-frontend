@@ -4,7 +4,7 @@ class AppContainer extends Container {
         super()
         this.div.classList.add('app-container')
 
-        // new helper function: attachContainerToBody(div)
+        addContainerToBody(this.div)
     }
 
     // do we need an explicit this.render() function,
