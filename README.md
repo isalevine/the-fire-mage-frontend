@@ -1,6 +1,6 @@
 # Welcome to The Fire Mage!
 
-**UPDATE 9/8/2019: The Fire Mage is now an open source project (or, at least I'm working on making that happen)! To contribute, please see CONTRIBUTION_GUIDE.md for more information.**
+**UPDATE 9/8/2019: The Fire Mage is now an open source project! (Or, at least I'm trying to make that happen!) To contribute, please see CONTRIBUTION_GUIDE.md for more information.**
 
 ![gif of demo for The Fire Mage](https://raw.githubusercontent.com/isalevine/the-fire-mage-frontend/master/firemage-demo.gif)
 
@@ -41,7 +41,7 @@ Use your browser (Chrome recommended) to open index.html. Enjoy!
 
 ## Release Notes
 
-**UPDATE 9/8/2019:Changelog and notes on refactoring have been added! See CHANGELOG.MD and REFACTOR_NOTES.md for more information.**
+**UPDATE 9/8/2019: Changelog and notes on refactoring have been added! See CHANGELOG.MD and REFACTOR_NOTES.md for more information.**
 
 I do not consider this project finished! Even though it was a one-week assignment, I have been encouraged by  [Brian Pak](https://dev.to/bouhm)  to clean up and open source this engine. Here are my goals and next step related to that:
 
