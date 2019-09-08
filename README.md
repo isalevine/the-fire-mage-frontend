@@ -1,8 +1,10 @@
 # Welcome to The Fire Mage!
 
+**UPDATE 9/8/2019: The Fire Mage is now an open source project! (Or, at least I'm trying to make that happen!) To contribute, please see CONTRIBUTION_GUIDE.md for more information.**
+
 ![gif of demo for The Fire Mage](https://raw.githubusercontent.com/isalevine/the-fire-mage-frontend/master/firemage-demo.gif)
 
-The Fire Mage is a proof-of-concept game for the underlying vanilla JavaScript engine, tentatively titled Real-Time Unit Mover (RTUM). 
+The Fire Mage a vanilla JavaScript engine, featuring the proof-of-concept game, "The Fire Mage"! (Original title, huh?) 
 
 It is a top-down, mouse-based interface with controls and game logic based on Warcraft II, and an art style paying homage to The Legend of Zelda--special thanks to [Jerom on OpenGameArt.org for the art!](https://opengameart.org/content/16x16-fantasy-tileset)
 
@@ -38,6 +40,8 @@ Use your browser (Chrome recommended) to open index.html. Enjoy!
   
 
 ## Release Notes
+
+**UPDATE 9/8/2019: Changelog and notes on refactoring have been added! See CHANGELOG.MD and REFACTOR_NOTES.md for more information.**
 
 I do not consider this project finished! Even though it was a one-week assignment, I have been encouraged by  [Brian Pak](https://dev.to/bouhm)  to clean up and open source this engine. Here are my goals and next step related to that:
 
