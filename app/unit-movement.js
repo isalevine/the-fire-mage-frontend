@@ -1,7 +1,4 @@
-
-
 function executeSelectedUnitMovement(positionX, positionY) {
-
   let selectedUnit = document.getElementsByClassName("unit cell selected")[0]
   if (selectedUnit) {
     addClickPointer(positionX, positionY)
@@ -62,7 +59,6 @@ function executeSelectedUnitMovement(positionX, positionY) {
         selectedUnit.cell.position.left -= containerX
         selectedUnit.cell.position.top -= containerY
 
-
         // console.log('selectedUnit.cell.hitboxPosition: ', selectedUnit.cell.hitboxPosition)
         collider.checkContainerUnitCollision(selectedUnit, boardContainer)
         collider.checkItemUnitCollision(selectedUnit)
@@ -71,8 +67,6 @@ function executeSelectedUnitMovement(positionX, positionY) {
     }
   }
 }
-
-
 
 function addClickPointer(positionX, positionY) {
   // check and remove current click-pointer (arrow to set unit movement target)

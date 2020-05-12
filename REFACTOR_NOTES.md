@@ -1,8 +1,6 @@
 # Notes on Refactoring to Open Source
 
-
 ## Goals
-
    * Create vanilla JS components for cells (Units, Items, Terrain, Walls), Events, and Hitboxes
    * Create vanilla JS containers for the App, Game, Help, and other boxes
        * Create a container-wrapper HUD with game info, Help/Options/Info menus, save/load, and selected Cell readout/dialog?
@@ -34,9 +32,7 @@
    * Add in patrolling enemy, 2nd player unit, and impassible wall/item
    * TESTS!! Testing methods for vanilla JS? Or will packages like Mocha or Jest be needed??
 
-
 ## Stretch Goals
-
    * Character portraits!
    * Customize pixel art with different colors--reach out to artist directly?
    * Sound effects and music?

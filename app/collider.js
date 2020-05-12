@@ -1,6 +1,4 @@
-
 function createCollider() {
-
   window.collider = {
     boardContainer: boardContainer,
     units: [],
@@ -43,7 +41,6 @@ function createCollider() {
         }
     },
 
-
     checkItemUnitCollision: function(selectedUnit) {
       let hasJustCollided = false;
       let itemCollided = null;
@@ -64,24 +61,15 @@ function createCollider() {
             itemCollided = collider.items[i]
           }
         }
-
-
       }
       // console.log("itemCollided: ", itemCollided)
       if (itemCollided != null) {
         itemCollisionEvent(selectedUnit.cell, itemCollided)
       }
-
-
     },
-
-
     // checkUnitUnitCollision: function() {}  // ADD FOR MULTIPLAYER!!
-
-
   }
 }
-
 
 // unsure whether the following functions should be global scope,
 // or attached to the window.collider object...
@@ -89,7 +77,6 @@ function createCollider() {
 // currently, arguments are not the same type of object:
 // unit is a DIV (must use unit.cell), and item is a CELL
 function itemCollisionEvent(unitCell, itemCell) {
-
   if (itemCell === axeCell && unitCell === mageCell) {
     console.log("itemCollisionEvent detected for axeCell and mageCell...")
     itemCell.onMap = false
@@ -103,8 +90,6 @@ function itemCollisionEvent(unitCell, itemCell) {
     itemCell.div.classList.remove('item')
     itemCell.div.classList.add('fadeout', 'special-effect')
     itemCell.div.style.top = parseInt(getComputedStyle(itemCell.div).top.replace("px", "")) - 30 + "px"
-
-
 
     setTimeout(() => {
       itemCell.div.remove()
@@ -125,7 +110,6 @@ function itemCollisionEvent(unitCell, itemCell) {
       // img.classList.add("slow-fadein")
       // fade-in not working...DEBUG AND REFACTOR!!
       div.appendChild(img)
-
     }, 1000)
   }
 
@@ -137,9 +121,7 @@ function itemCollisionEvent(unitCell, itemCell) {
       endgame.case1()
     }
   }
-
 }
-
 
 function addItemToInventory(unitCell, itemName) {
   unitCell.inventory.push(itemName)

@@ -1,5 +1,3 @@
-
-
 // STILL NO FUNCTIONS TO CHECK AND DESTROY
 // EXPIRED OR COMPLETED GAME SESSIONS!!
 
@@ -8,39 +6,25 @@ API_URL = "http://localhost:3000/api/v1/"
 GAME_SESSION_URL = API_URL + "game_sessions/"
 
 
-
 // SAVING NEW GAME DATA
+// ====================
 
 function saveNewGameSession() {
-  console.log("saveNewGameSession running...")
-
-  // // BENCHMARK TESTING 
-  // let timeStart = console.time()
-  // console.log("timeStart: ", timeStart)
-
-  // // test generating/saving tiles 10 times => use similar format for Loading function
-  // for (let i = 0; i < 10; i++) {
-    fetch(GAME_SESSION_URL, {method: "POST"})
-    .then(res => res.json())
-    .then(newGameSession => {
-      console.log("newGameSession from saveNewGameSession()'s POST request: ", newGameSession)
-      localStorage.setItem("browserGameSessionId", `${newGameSession.id}`)
-      currentGameSession = newGameSession
-      console.log("currentGameSession: ", currentGameSession)
-      drawNewGame()
-    })
-  // }
-
+  fetch(GAME_SESSION_URL, {method: "POST"})
+  .then(res => res.json())
+  .then(newGameSession => {
+    console.log("newGameSession from saveNewGameSession()'s POST request: ", newGameSession)
+    localStorage.setItem("browserGameSessionId", `${newGameSession.id}`)
+    currentGameSession = newGameSession
+    console.log("currentGameSession: ", currentGameSession)
+    drawNewGame()
+  })
 }
 
-
-
 function saveNewCell(cell) {
-
   // TEMP for testing!
   // browserGameSessionId = "50"
   //
-
   let config = {
     method: "POST",
     headers: {
@@ -67,8 +51,6 @@ function saveNewCell(cell) {
   })
 }
 
-
-
 function saveNewTerrain() {
   let config = {
     method: "POST",
@@ -85,10 +67,8 @@ function saveNewTerrain() {
 }
 
 
-
-
-
 // LOADING CONTINUE GAME DATA
+// ==========================
 
 function loadCells() {
   fetch(GAME_SESSION_URL + `${currentGameSession.id}` + '/cells/')
@@ -118,7 +98,6 @@ function loadCells() {
   })
 }
 
-
 function populateCell(cell) {
   if (cell.name === "axe") {
     window.axeCell = new Item("axe", "item-container", cell.position, cell.on_map)
@@ -146,7 +125,6 @@ function populateCell(cell) {
       img.src = axeCell.div.getElementsByTagName("img")[0].src
       div.appendChild(img)
     }
-
   }
 
   if (cell.name === "tree") {
@@ -155,7 +133,6 @@ function populateCell(cell) {
     treeCell.id = cell.id
   }
 }
-
 
 // utility function for loadCells()
 function convertDbPosition(cell) {
@@ -168,17 +145,13 @@ function convertDbPosition(cell) {
 }
 
 
-
-
 function loadTerrains() {
-
   fetch(GAME_SESSION_URL + `${currentGameSession.id}` + "/all_terrains/")
   .then(res => res.json())
   .then(data => {
     console.log(data)
     allTerrain = data[0]["img_src_array"]
 
-    
     let yCounter = 1
     let index = 0
     while (yCounter <= 12) {
@@ -208,17 +181,12 @@ function loadTerrains() {
       }
       yCounter += 1
     }
-
-    })
-
+  })
 }
 
 
-
-
 // UPDATING IN-PROGRESS GAME DATA
-
-
+// ==============================
 
 function updateCells() {
   // POST/PATCH requests to current cell - position, onMap
@@ -253,8 +221,6 @@ function updateCells() {
   })
 }
 
-
-
 function updateGameSession() {
   let config = {
     method: "PATCH",
@@ -275,7 +241,6 @@ function updateGameSession() {
     checkExpiration()
   })
 }
-
 
 function checkExpiration() {
   // all GameSessions are checked on Ruby backend for expiration when new game is created

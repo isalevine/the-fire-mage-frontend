@@ -1,6 +1,5 @@
 # Thank you for supporting The Fire Mage!
 
-
 ## Setup
 See READMME.md instructions (for now)
 
