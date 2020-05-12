@@ -9,11 +9,32 @@ The Fire Mage a vanilla JavaScript engine, featuring the proof-of-concept game, 
 It is a top-down, mouse-based interface with controls and game logic based on Warcraft II, and an art style paying homage to The Legend of Zelda--special thanks to [Jerom on OpenGameArt.org for the art!](https://opengameart.org/content/16x16-fantasy-tileset)
 
   
+## Highlights
+### 1. [Playable demo on Heroku here!](https://the-fire-mage.herokuapp.com/)
+May require a refresh to ensure that both the frontend and backend dynos on Heroku are active.
+
+A mouse is recommended for ease of left- and right-clicking (as the controls are based on Starcraft / Warcraft unit selection), but is not required.
+
+### 2. A collision-detector [written completely in vanilla JavaScript!](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/collider.js)
+As part of the core game engine, the `collider` object listens for [collisions between different types of cells](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/collider.js#L47) (such as Units and Items), or [cells and the border of the map](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/collider.js#L9).
+
+This is achieved by storing cell location data as state (and [in the database](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/database-functions.js#L235) to be persisted between browser reloads), and having each cell have a hitbox div within it. When the `collider` detects the hitboxes of two cells overlapping, it [triggers an event](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/collider.js#L91).
+
+Additionally, to ensure that cells do not get "stuck" when colliding with the border of the map, there is a "bounce" implemented to [rebound moving units away from the map border by several pixels](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/collider.js#L23).
+
+The game starts listening for collisions when cell movement is detected, and [listens for collisions every 50 milliseconds until all movement stops](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/unit-movement.js#L47).
+
+### 3. Unit movements are [animated by vanilla JavaScript and CSS style manipulation](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/unit-movement.js#L13)!
+The code uses [a dynamic CSS style to keep unit speed consistent](https://github.com/isalevine/the-fire-mage-frontend/blob/46797f43fc221b7ba6cf32e61b98cfd73aa37123/app/unit-movement.js#L27), regardless of how far they are moving.
+
+### 4. Game sessions are [persisted between browser refreshes](https://github.com/isalevine/the-fire-mage-frontend/blob/8c5e93a0492592dc2e40fa6a9a00be24aa410aa0/app/database-functions.js#L12)!
+Persisted data includes the [randomly-generated terrain](https://github.com/isalevine/the-fire-mage-frontend/blob/8c5e93a0492592dc2e40fa6a9a00be24aa410aa0/app/database-functions.js#L148), the [location of all cells](https://github.com/isalevine/the-fire-mage-frontend/blob/8c5e93a0492592dc2e40fa6a9a00be24aa410aa0/app/database-functions.js#L191), and [any items in your inventory](https://github.com/isalevine/the-fire-mage-frontend/blob/8c5e93a0492592dc2e40fa6a9a00be24aa410aa0/app/database-functions.js#L208).
+
+### 5. Check out the [Contribution Guide](https://github.com/isalevine/the-fire-mage-frontend/blob/master/CONTRIBUTION_GUIDE.md), [Changelog](https://github.com/isalevine/the-fire-mage-frontend/blob/master/CHANGELOG.md), and [Refactor Notes](https://github.com/isalevine/the-fire-mage-frontend/blob/master/REFACTOR_NOTES.md) as part of my effort to open-source this engine!
   
 
 ## Overview
-
-  The Fire Mage's code can be used and modified to create new games. Here's a quick rundown of how the models and logic are organized:
+The Fire Mage's code can be used and modified to create new games. Here's a quick rundown of how the models and logic are organized:
 
 * **app/classes.js** -- Contains all classes used for building and populating games, including GameSession, Container, and Cell (which extend into Item and Unit). Also includes methods for formatting div positions for updating, randomizing starting coordinates, and adding Cell images and hitboxes. 
 * **app/collider.js** -- Contains all logic for detecting hitbox collisions to trigger events.
@@ -22,22 +43,13 @@ It is a top-down, mouse-based interface with controls and game logic based on Wa
 * **app/unit-movement.js** -- Contains all logic for moving and animating cells based on mouse clicks.
   
   
-
 ## Install
-
-  
-
 Clone this repo onto your machine. ```cd the-fire-mage-frontend``` to move into the folder.
-
 
 Make sure you have the Rails backend cloned down, installed, and running on localhost:3000. [Directions can be found here.](https://github.com/isalevine/the-fire-mage-backend)
 
-  
 Use your browser (Chrome recommended) to open index.html. Enjoy!
 
-  
-  
-  
 
 ## Release Notes
 
