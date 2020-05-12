@@ -32,7 +32,9 @@
    * Add in patrolling enemy, 2nd player unit, and impassible wall/item
    * TESTS!! Testing methods for vanilla JS? Or will packages like Mocha or Jest be needed??
 
+
 ## Stretch Goals
+
    * Character portraits!
    * Customize pixel art with different colors--reach out to artist directly?
    * Sound effects and music?
