@@ -33,7 +33,7 @@ Persisted data includes the [randomly-generated terrain](https://github.com/isal
 ### 5. Check out the WIP documents as part of my effort to open-source this engine: 
 * [Contribution Guide](https://github.com/isalevine/the-fire-mage-frontend/blob/master/CONTRIBUTION_GUIDE.md)
 * [Changelog](https://github.com/isalevine/the-fire-mage-frontend/blob/master/CHANGELOG.md)
-* [Refactor Notes](https://github.com/isalevine/the-fire-mage-frontend/blob/master/REFACTOR_NOTES.md) as part of my effort to open-source this engine!
+* [Refactor Notes](https://github.com/isalevine/the-fire-mage-frontend/blob/master/REFACTOR_NOTES.md)
   
 
 ## Overview
