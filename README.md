@@ -30,7 +30,10 @@ The code uses [a dynamic CSS style to keep unit speed consistent](https://github
 ### 4. Game sessions are [persisted between browser refreshes](https://github.com/isalevine/the-fire-mage-frontend/blob/8c5e93a0492592dc2e40fa6a9a00be24aa410aa0/app/database-functions.js#L12)!
 Persisted data includes the [randomly-generated terrain](https://github.com/isalevine/the-fire-mage-frontend/blob/8c5e93a0492592dc2e40fa6a9a00be24aa410aa0/app/database-functions.js#L148), the [location of all cells](https://github.com/isalevine/the-fire-mage-frontend/blob/8c5e93a0492592dc2e40fa6a9a00be24aa410aa0/app/database-functions.js#L191), and [any items in your inventory](https://github.com/isalevine/the-fire-mage-frontend/blob/8c5e93a0492592dc2e40fa6a9a00be24aa410aa0/app/database-functions.js#L208).
 
-### 5. Check out the [Contribution Guide](https://github.com/isalevine/the-fire-mage-frontend/blob/master/CONTRIBUTION_GUIDE.md), [Changelog](https://github.com/isalevine/the-fire-mage-frontend/blob/master/CHANGELOG.md), and [Refactor Notes](https://github.com/isalevine/the-fire-mage-frontend/blob/master/REFACTOR_NOTES.md) as part of my effort to open-source this engine!
+### 5. Check out the WIP documents as part of my effort to open-source this engine: 
+* [Contribution Guide](https://github.com/isalevine/the-fire-mage-frontend/blob/master/CONTRIBUTION_GUIDE.md)
+* [Changelog](https://github.com/isalevine/the-fire-mage-frontend/blob/master/CHANGELOG.md)
+* [Refactor Notes](https://github.com/isalevine/the-fire-mage-frontend/blob/master/REFACTOR_NOTES.md) as part of my effort to open-source this engine!
   
 
 ## Overview
