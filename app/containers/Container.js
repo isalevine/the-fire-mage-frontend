@@ -7,6 +7,6 @@ class Container {
      div.classList.add('container')
      this.div = div
      this.hitboxPosition = positionCreator(div)
-     gameWindow.appendChild(div)
+    //  gameWindow.appendChild(div)   // experimenting with AppContainer's rendering
     }
   }

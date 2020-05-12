@@ -96,6 +96,20 @@ a {
   grid-template-rows: repeat(12, 42px);
 }
 
+.app-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 60%;
+  height: 60%;
+  border-style: solid;
+  border-width: 3px;
+  border-color: lightsteelblue;
+}
+
+
+
+
 .container > .hitbox {
   position: absolute;
   left: 0px;

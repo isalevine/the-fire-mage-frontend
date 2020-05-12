@@ -1,8 +1,6 @@
 # Notes on Refactoring to Open Source
 
-
 ## Goals
-
    * Create vanilla JS components for cells (Units, Items, Terrain, Walls), Events, and Hitboxes
    * Create vanilla JS containers for the App, Game, Help, and other boxes
        * Create a container-wrapper HUD with game info, Help/Options/Info menus, save/load, and selected Cell readout/dialog?
